@@ -1,5 +1,5 @@
 # misraC-Checker
-Generate Misra C rules and check code with misra-c linter
+Generate Misra C rules and check code with Misra C linter
 
 ## Setup
 
