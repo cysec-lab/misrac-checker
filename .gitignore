@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# cppcheck
+/cppcheck-main
+
+# misra-c examples
+/Example-Suite-master
+
+# misrac 2012 rule
+/misrac-2012.txt
+
+# cppcheck meta data
+*.c.ctu-info
+*.c.dump
