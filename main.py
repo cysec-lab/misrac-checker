@@ -138,8 +138,10 @@ def main(codeCheckFileName):
     # print misra_result
     print(misra_result)
     if "MISRA rules violations found" in misra_result:
-        print("'{}' has MISRA violation\n".format(codeCheckFileName))
+        print("'{}' has MISRA rules violations\n".format(codeCheckFileName))
+        return 1
     #     sys.exit(1)
+    return 0
 
 if __name__ == '__main__':
     # check argc is 2 or not
@@ -147,7 +149,14 @@ if __name__ == '__main__':
         print('usage: python3 main.py <c or cpp file path> ...')
         sys.exit(1)
 
+    exit_status = []
     # call main function
     for codeCheckFileName in sys.argv:
         if codeCheckFileName != "main.py":
-            main(codeCheckFileName)
+            exit_status.append(main(codeCheckFileName))
+
+    for status in exit_status:
+        if status != 0:
+            print("fix some MISRA rules violations")
+            sys.exit(1)
+    sys.exit(0)
