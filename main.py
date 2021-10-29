@@ -1,6 +1,4 @@
 # Generate Misra C rules and check code with misra-c linter
-# Author: Me and GitHub Copilot
-# Tested: 2021.07.21
 
 import os
 import re
@@ -151,8 +149,9 @@ if __name__ == '__main__':
 
     exit_status = []
     # call main function
-    for codeCheckFileName in sys.argv:
-        if codeCheckFileName != "main.py":
+    for i in range(0, len(sys.argv)):
+        codeCheckFileName = sys.argv[i]
+        if i > 0:
             exit_status.append(main(codeCheckFileName))
 
     for status in exit_status:
